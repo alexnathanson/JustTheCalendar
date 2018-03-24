@@ -1,0 +1,27 @@
+{
+
+  "manifest_version": 2,
+  "name": "Just The Calendar",
+  "version": "1.0",
+
+  "description": "Just the Facebook Calendar",
+  "homepage_url": "https://github.com/alexnathanson/JustTheCalendar",
+  "icons": {
+    "48": "icons/JustTheCal48.png"
+  },
+
+  "permissions": [
+    "activeTab"
+  ],
+
+  "browser_action": {
+    "default_icon": "icons/JustTheCal32.png",
+    "default_title": "Just The Calendar",
+    "default_popup": "popup/justthecal.html"
+  },
+
+  "web_accessible_resources": [
+    "images/JustTheCalendar_image1.jpg"
+  ]
+
+}

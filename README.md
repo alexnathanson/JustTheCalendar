@@ -7,5 +7,5 @@
 
 
 
-* Some other cool shit for retaking control of your social media presence:
+# Some other cool shit for retaking control of your social media presence:
 * dataselfie.it

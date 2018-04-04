@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="justthecalendar.css"/>
+  </head>
+
+<body>
+
+<!--this should be moved to a server side operation to be more secure-->
+<script language="javascript" type="text/javascript">
+  if (location.protocol != 'https:')
+{
+ location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
+}
+</script>
+
+
+<p><strong>Just the Calendar (version 0.0.1) is a tool for limiting your social media presence while avoiding the fear of missing out (FOMO). It is literally just your Facebook calendar in a less social and news feed free environment.</strong></p>
+
+<p><strong>If you are interested in becoming a test user fill out this <a href="https://docs.google.com/forms/d/e/1FAIpQLScZOHq8PN4gFbmE-PcpPWt7bylSoqD9Ca9Y5Uje_xa8KnOwOg/viewform" target="_blank">form</a> and you will be given access. Email <a href="mailto:admin@justthecalendar.com" target="_top">admin@justthecalendar.com</a> with questions.</strong></p>
+
+<p>Download the <strong><a href="https://addons.mozilla.org/en-US/firefox/addon/just-the-calendar/" target="_blank">Firefox Browser Extension!</a></strong></p>
+
+<p>Download the <strong><a href="https://chrome.google.com/webstore/detail/just-the-calendar/feocoejldenealpkejpbbdpibcpocioe
+" target="_blank">Chrome Browser Extension!</a></strong></p>
+
+<div id="getDate"></div>
+
+<!--
+<p>
+  <form action="">
+    <input type="radio" name="range" value="today"> Today 
+    <input type="radio" name="range" value="week"> This Week 
+    <input type="radio" name="range" value="month"> This Month 
+    <input type="radio" name="range" value="all"> All Upcoming<br>
+    <input type="checkbox" name="status" value="status"> Show Attendance Status<br>
+  </form>
+</p>
+-->
+
+<p id="logButt">
+  <button onclick="loginButton()">Login</button>
+</p>
+
+<!--<p>Today is </p>
+<p id="rn"></p>-->
+
+<p><strong>Upcoming events:</strong></p>
+<p id="upcoming"></p> 
+
+<!--
+  <p><strong> Today</strong></p>
+<p id="events2"></p> 
+
+<p><strong> This week</strong></p>
+<p id="events2"></p> 
+
+<p><strong> This month</strong></p>
+<p id="events2"></p>
+
+<p><strong> Next month</strong></p>
+<p id="events2"></p>  
+-->
+
+<p><strong>Questions?</strong><br>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfYGD2AqQ87ZvNA0pLO-3fIbQjx7MUifcp5tYMuJ-PEs9ofzQ/viewform" target="_blank">Submit technical issues with this form.</a><br>Email <a href="mailto:admin@justthecalendar.com" target="_top">admin@justthecalendar.com</a> with any other questions.
+</p>
+
+<p><strong>Why?</strong><br>
+Because social media is frequently a waste of my time, but I don't want to miss all the IRL birthday parties. I'm guessing you feel the same way.</p>
+
+<p><strong>When will it go live?</strong><br>
+Due to Facebook's failure to protect user data from evil mind controlling corporations, they have temporarily stopped issueing security keys for new apps. Because of this Just the Calendar is currently only available to selected test users until Facebook revamps their application security review procedurs.<br>
+If you are interested in becoming a test user email <a href="mailto:admin@justthecalendar.com" target="_top">admin@justthecalendar.com</a>.</p>
+
+<p><strong>How does its work?</strong><br>
+The Facebook Graph API provides all of the necessary information to create Just the Calendar.</p>
+
+<p><strong>Do you store any of my data?</strong><br>
+Nope! Just the Calendar does not store any of your data at all. All calender info that is retrieved from Facebook is only stored on your browser, until you close the window. We don't even pull your name from the API.</p>
+
+<p><strong>Why should I trust you?</strong><br>
+It's 2018. Don't trust anyone on the internet.</p>
+
+<p><strong>Known Issues</strong><br>
+Some browser and Facebook user settings interfere with the operation of Just The Calendar.
+</p>
+
+<p><strong>Can you share some resources for learning more about predatory design practices and tech addiction?</strong><br>
+Coming soon!</p>
+</body>
+
+<script src="general.js"></script>
+<script src="fbsetup.js"></script>
+
+</html>

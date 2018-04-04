@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="justthecalendar.css"/>
+  </head>
+
+<body>
+
+<!--this should be moved to a server side operation to be more secure-->
+<script language="javascript" type="text/javascript">
+  if (location.protocol != 'https:')
+{
+ location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
+}
+</script>
+
+<script src="fbsetup.js"></script>
+<p><strong><a href="https://www.justthecalendar.com" target="_blank">Just the Calendar (version 0.0.1)</a></strong></p>
+<div id="getDate"></div>
+
+<p id="logButt">
+  <button onclick="loginButton()">Login</button>
+</p>
+
+<!--<p>Today is </p>
+<p id="rn"></p>-->
+
+<p><strong>Upcoming events:</strong></p>
+<p id="upcoming"></p> 
+'
+<p><strong>If you are interested in becoming a test user fill out this <a href="https://docs.google.com/forms/d/e/1FAIpQLScZOHq8PN4gFbmE-PcpPWt7bylSoqD9Ca9Y5Uje_xa8KnOwOg/viewform" target="_blank">form</a> and you will be given access.</strong></p>
+'
+<p><strong>Questions?</strong><br>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfYGD2AqQ87ZvNA0pLO-3fIbQjx7MUifcp5tYMuJ-PEs9ofzQ/viewform" target="_blank">Submit technical issues with this form.</a><br>Email <a href="mailto:admin@justthecalendar.com" target="_top">admin@justthecalendar.com</a> with any other questions.
+</p>
+
+<script src="general.js"></script>
+
+</body>
+</html>

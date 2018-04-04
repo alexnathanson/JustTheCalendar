@@ -6,6 +6,9 @@
 
 
 
+# Facebook API resources
+* https://developers.facebook.com/docs/javascript/quickstart
+* https://developers.facebook.com/docs/javascript/advanced-setup
 
-# Some other cool shit for retaking control of your social media presence:
+# Other cool shit for retaking control of your social media presence:
 * dataselfie.it

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="justthecalendar.css"/>
+  </head>
+
+<body>
+
+<!--this should be moved to a server side operation to be more secure-->
+<script language="javascript" type="text/javascript">
+  if (location.protocol != 'https:')
+{
+ location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
+}
+</script>
+
+
+<p><strong>Test user diagnostics.</strong></p>
+
+<div id="getDate"></div>
+
+<p id="logButt">
+  <button onclick="loginButton()">Login</button>
+</p>
+
+<p><strong>Upcoming events:</strong></p>
+<p id="upcoming"></p> 
+
+<p><strong>Questions?</strong><br>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfYGD2AqQ87ZvNA0pLO-3fIbQjx7MUifcp5tYMuJ-PEs9ofzQ/viewform" target="_blank">Submit technical issues with this form.</a><br>Email <a href="mailto:admin@justthecalendar.com" target="_top">admin@justthecalendar.com</a> with any other questions.
+</p>
+
+</body>
+
+<script src="diagnostics.js"></script>
+
+</html>

@@ -16,17 +16,23 @@
 }
 </script>
 
+<table width="100%">
+  <tr>
+    <td width="50%" align="left" valign="_top">
+      <div class="fb-login-button" data-max-rows="1" data-size="small" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false" onlogin='window.location.reload(true);'></div>
+    </td>
+    <td width="50%" align="left" valign="_top">
+      <div id="getDate">Today is </div>
+    </td>
+  </tr>
+</table>
 
-<p><strong>Just the Calendar (version 0.0.1) is a tool for limiting your social media presence while avoiding the fear of missing out (FOMO). It is literally just your Facebook calendar in a less social and news feed free environment.</strong></p>
+<p><strong>Just the Calendar (version 0.0.1) is a tool for limiting your social media presence while avoiding the fear of missing out (FOMO). It is literally just your Facebook calendar in a distraction free environment.</strong></p>
 
 <p><strong>If you are interested in becoming a test user fill out this <a href="https://docs.google.com/forms/d/e/1FAIpQLScZOHq8PN4gFbmE-PcpPWt7bylSoqD9Ca9Y5Uje_xa8KnOwOg/viewform" target="_blank">form</a> and you will be given access. Email <a href="mailto:admin@justthecalendar.com" target="_top">admin@justthecalendar.com</a> with questions.</strong></p>
 
-<p>Download the <strong><a href="https://addons.mozilla.org/en-US/firefox/addon/just-the-calendar/" target="_blank">Firefox Browser Extension!</a></strong></p>
-
-<p>Download the <strong><a href="https://chrome.google.com/webstore/detail/just-the-calendar/feocoejldenealpkejpbbdpibcpocioe
-" target="_blank">Chrome Browser Extension!</a></strong></p>
-
-<div id="getDate"></div>
+<p>Download the browser extension for <strong><a href="https://addons.mozilla.org/en-US/firefox/addon/just-the-calendar/" target="_blank">Firefox</a></strong> or <strong><a href="https://chrome.google.com/webstore/detail/just-the-calendar/feocoejldenealpkejpbbdpibcpocioe
+" target="_blank">Chrome</a></strong>!</p>
 
 <!--
 <p>
@@ -40,12 +46,15 @@
 </p>
 -->
 
+
+<!--<div class="fb-login-button" data-max-rows="1" data-size="small" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false"></div>-->
+<!--
 <p id="logButt">
   <button onclick="loginButton()">Login</button>
-</p>
+</p>-->
 
-<!--<p>Today is </p>
-<p id="rn"></p>-->
+<!--
+<div class="fb-login-button" data-max-rows="1" data-size="small" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false"></div>-->
 
 <p><strong>Upcoming events:</strong></p>
 <p id="upcoming"></p> 
@@ -72,20 +81,23 @@
 Because social media is frequently a waste of my time, but I don't want to miss all the IRL birthday parties. I'm guessing you feel the same way.</p>
 
 <p><strong>When will it go live?</strong><br>
-Due to Facebook's failure to protect user data from evil mind controlling corporations, they have temporarily stopped issueing security keys for new apps. Because of this Just the Calendar is currently only available to selected test users until Facebook revamps their application security review procedurs.<br>
+Hopefully by the end of April.<br>
 If you are interested in becoming a test user email <a href="mailto:admin@justthecalendar.com" target="_top">admin@justthecalendar.com</a>.</p>
 
 <p><strong>How does its work?</strong><br>
 The Facebook Graph API provides all of the necessary information to create Just the Calendar.</p>
 
 <p><strong>Do you store any of my data?</strong><br>
-Nope! Just the Calendar does not store any of your data at all. All calender info that is retrieved from Facebook is only stored on your browser, until you close the window. We don't even pull your name from the API.</p>
+Nope! Just the Calendar does not store any of your Facebook data at all and we don't pull more info than is needed.</p>
 
 <p><strong>Why should I trust you?</strong><br>
 It's 2018. Don't trust anyone on the internet.</p>
 
 <p><strong>Known Issues</strong><br>
-Some browser and Facebook user settings interfere with the operation of Just The Calendar.
+The Mozilla <u>Facebook Container for Firefox</u> is not compatible with the system we're using to log in users and retrieve calendar info. If you want to use both a container system to keep Facebook from sniffing around your life and this application we recommend using Mozilla's <u>Firefox Multi-Account Containers</u> add-on and adding the Just the Calendar website to the Facebook tab. This will only work for the website and not the add-on pop-up.
+</p>
+<p>
+  Some users have reported not seeing any events in their calendar and getting this error message in their console. "Cannot read property 'name' of undefined" This problem should have been resolved, but if you have received this error (after 4/4/18) please email us.
 </p>
 
 <p><strong>Can you share some resources for learning more about predatory design practices and tech addiction?</strong><br>

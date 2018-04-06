@@ -26,14 +26,14 @@ window.fbAsyncInit = function() {
       //console.log(xfbml);
       
       //remove login button
-      //var elem = document.querySelector('#logButt');
-      //elem.style.display = 'none';
+      var elem = document.querySelector('#logButt');
+      elem.style.display = 'none';
 
       //this could also work instead of removeChild
       //elem.parentNode.removeChild(elem);
 
       //do I need to reset allEvents with something like allEvents = [] here?
-
+      diagnostics();
       //get events
       FB.api(
         '/me/events/not_replied',
@@ -41,7 +41,7 @@ window.fbAsyncInit = function() {
         {since:'today'},//{"fields":"rsvp_status, event_rsvp"},
         function(response) {
             //console.log(response);
-            sortEvents(response.data, "not_replied");
+            sortEvents(response.data);
         }
       );
 
@@ -53,7 +53,7 @@ window.fbAsyncInit = function() {
         //{"fields":"events", "since":"today"}, //removed id,name from the search fields
         {since:'today'},
         function(response) {
-            sortEvents(response.data, "events");
+            sortEvents(response.data);
         }
       );
     }
@@ -61,8 +61,8 @@ window.fbAsyncInit = function() {
 
         //make sure login button is visible
         //remove login button
-        //var elem = document.querySelector('#logButt');
-        //elem.style.display = 'initial';
+        var elem = document.querySelector('#logButt');
+        elem.style.display = 'initial';
     }
   });
 };
@@ -122,12 +122,13 @@ function loginButton() {
 function diagnostics(){
 
   //check if user is logged in
-
+  console.log("checking permissions");
   //check permissions
   FB.api(
     '/me/permissions',
     'GET',
     function(response){
+      console.log("Permissions: ");
       console.log(response);
 
       //if response != correct permission print something
@@ -138,46 +139,22 @@ function diagnostics(){
 
 };
 
-function sortEvents(array, string){
+function sortEvents(array){
 
-  console.log("sorting: " + string + " returned " + array.length);
-
+  console.log("sorting! " + array.length);
 
   for (var e = 0; e < array.length; e++){
 
     var eSt = array[e].start_time;
-//!str || 0 === str.length
-    if (array[e].name || array[e].name.length != 0 ){
-      var eN = array[e].name;
-    } else {
-      eN = "";
-    }
-
-    //this is glitchy -- didn't work for rose
-    if (array[e].place.name !== undefined){// || 0 === array[e].place.name.length){
-      var ePn = array[e].place.name;
-    } else {
-      var ePn = "";
-    }
-
-    if (array[e].rsvp_status !== undefined){// || 0 === array[e].place.name.length){
-      var rsvpStat = array[e].rsvp_status;
-    } else {
-      var rsvpStat = "";
-    }
-
-    if (array[e].id !== undefined){// || 0 === array[e].place.name.length){
-      var eventId = array[e].id;
-    } else {
-      var eventId = "";
-    }
+    var eN = array[e].name;
+    var ePn = array[e].place.name;
     //var eAs = ; //response
 
-    var thisEvent = {start_time: eSt, name: eN, placename: ePn, rsvp_status: rsvpStat, id: eventId};
+    var thisEvent = {start_time: eSt, name: eN, placename: ePn};
     allEvents.push(thisEvent);
+    
+    console.log(allEvents[e]);
   };
-      //console.log(allEvents);
-
 
   //filter by month, sort each month by day, then sort everything by year for output
 

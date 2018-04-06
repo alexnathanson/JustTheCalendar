@@ -2,7 +2,7 @@
 
   "manifest_version": 2,
   "name": "Just The Calendar",
-  "version": "0.1.0",
+  "version": "0.1.1",
 
   "description": "Just the Facebook Calendar",
   "homepage_url": "https://www.justthecalendar.com",
@@ -28,5 +28,4 @@
   "web_accessible_resources": [
     "images/JustTheCalendar_image1.jpg"
   ]
-
 }

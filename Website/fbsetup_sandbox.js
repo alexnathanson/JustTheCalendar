@@ -8,8 +8,6 @@ var checkEvents = false;
 
 console.log("setting up!");
 
-//console.log(filterDate());
-
 window.fbAsyncInit = function() {
   FB.init({
     appId      : '168464403873738',
@@ -20,8 +18,6 @@ window.fbAsyncInit = function() {
     
   FB.AppEvents.logPageView();   
   
-  filterDate();
-
   //get login status
   FB.getLoginStatus(function(response) {
     if (response.status === 'connected') {
@@ -30,8 +26,8 @@ window.fbAsyncInit = function() {
       //console.log(xfbml);
       
       //remove login button
-      var elem = document.querySelector('#logButt');
-      elem.style.display = 'none';
+      //var elem = document.querySelector('#logButt');
+      //elem.style.display = 'none';
 
       //this could also work instead of removeChild
       //elem.parentNode.removeChild(elem);
@@ -45,7 +41,7 @@ window.fbAsyncInit = function() {
         {since:'today'},//{"fields":"rsvp_status, event_rsvp"},
         function(response) {
             //console.log(response);
-            sortEvents(response.data);
+            sortEvents(response.data, "not_replied");
         }
       );
 
@@ -57,7 +53,7 @@ window.fbAsyncInit = function() {
         //{"fields":"events", "since":"today"}, //removed id,name from the search fields
         {since:'today'},
         function(response) {
-            sortEvents(response.data);
+            sortEvents(response.data, "events");
         }
       );
     }
@@ -65,8 +61,8 @@ window.fbAsyncInit = function() {
 
         //make sure login button is visible
         //remove login button
-        var elem = document.querySelector('#logButt');
-        elem.style.display = 'initial';
+        //var elem = document.querySelector('#logButt');
+        //elem.style.display = 'initial';
     }
   });
 };
@@ -98,9 +94,22 @@ function makeUL(array) {
 
         listItem = listItem + ", " + array[r].placename; //the object key placename corresponds to place.name in the FB api. (js didn't like the "." in the name)
 
-        // Set its contents:
-        item.appendChild(document.createTextNode(listItem));// array[i].start_time + ", " + array[i].name
+        var a = document.createElement('a');
+        a.setAttribute('href', 'https://www.justthecalendar.com/?' + array[r].id);
+        a.innerHTML = listItem;
 
+        item.appendChild(a);
+        // apend the anchor to the body
+        // of course you can append it almost to any other dom element
+        //.getElementsByTagName('body')[0].appendChild(a);
+
+        // Set its contents:
+        //item.appendChild(document.create('a');//href(listItem));// array[i].start_time + ", " + array[i].name
+
+        //var link = document.createElement('a');
+        //link.setAttribute('href', 'https://www.justthecalendar.com';
+        //var test = 234432;
+        //item.setAttribute("href", "https://www.justthecalendar.com/");
         // Add it to the list:
         list.appendChild(item);
     }
@@ -108,27 +117,6 @@ function makeUL(array) {
     // Finally, return the constructed list:
     return list;
 }
-
-
-//filter by date
-function filterDate(){
-  var today = new Date();
-  var dd = today.getDate();
-  var mm = today.getMonth()+1; //January is 0!
-  var yyyy = today.getFullYear();
-
-  var filtDate = yyyy + "-" + mm + "-" + dd;
-
-  console.log("Todays date " + today + "4");
-  
-  var tD = document.getElementById("getDate");
-
-  var newDate = document.createElement("p");
-  var dateNode = document.createTextNode(today.toDateString());     // Create a text node
-  newDate.appendChild(dateNode);                               
-  tD.appendChild(newDate);
-  //return filtDate;
-};
 
 function loginButton() {
 
@@ -163,21 +151,46 @@ function diagnostics(){
 
 };
 
-function sortEvents(array){
+function sortEvents(array, string){
 
-  console.log("sorting! " + array.length);
+  console.log("sorting: " + string + " returned " + array.length);
+
 
   for (var e = 0; e < array.length; e++){
 
     var eSt = array[e].start_time;
-    var eN = array[e].name;
-    var ePn = array[e].place.name;
+//!str || 0 === str.length
+    if (array[e].name || array[e].name.length != 0 ){
+      var eN = array[e].name;
+    } else {
+      eN = "";
+    }
+
+    //this is glitchy -- didn't work for rose
+    if (array[e].place.name !== undefined){// || 0 === array[e].place.name.length){
+      var ePn = array[e].place.name;
+    } else {
+      var ePn = "";
+    }
+
+    if (array[e].rsvp_status !== undefined){// || 0 === array[e].place.name.length){
+      var rsvpStat = array[e].rsvp_status;
+    } else {
+      var rsvpStat = "";
+    }
+
+    if (array[e].id !== undefined){// || 0 === array[e].place.name.length){
+      var eventId = array[e].id;
+    } else {
+      var eventId = "";
+    }
     //var eAs = ; //response
 
-    var thisEvent = {start_time: eSt, name: eN, placename: ePn};
+    var thisEvent = {start_time: eSt, name: eN, placename: ePn, rsvp_status: rsvpStat, id: eventId};
     allEvents.push(thisEvent);
-    console.log(allEvents[e]);
   };
+      //console.log(allEvents);
+
 
   //filter by month, sort each month by day, then sort everything by year for output
 
@@ -207,7 +220,7 @@ function sortEvents(array){
         };
          //if it doesn't match an existing month, store it
         if (newMonth == true){
-          console.log(" test 8");
+          //console.log("new month!");
           storeMonths[storeMonths.length-1][0] = allEvents[ye];
         };
       };

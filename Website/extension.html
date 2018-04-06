@@ -3,7 +3,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="justthecalendar.css"/>
+    <link rel="stylesheet" href="justthecalendar_extension.css"/>
   </head>
 
 <body>
@@ -17,17 +17,29 @@
 </script>
 
 <script src="fbsetup.js"></script>
-<p><strong><a href="https://www.justthecalendar.com" target="_blank">Just the Calendar (version 0.0.1)</a></strong></p>
-<div id="getDate"></div>
 
-<p id="logButt">
-  <button onclick="loginButton()">Login</button>
-</p>
+<table width="100%">
+	<tr>
+		<td width="50%" align="left" valign="_top">
+			<div class="fb-login-button" data-max-rows="1" data-size="small" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false" onlogin='window.location.reload(true);'></div>
+		</td>
+		<td width="50%" align="right" valign="_top">
+			<strong><a href="https://www.justthecalendar.com" target="_blank">Just the Calendar (version 0.0.1)</a></strong>
+		</td>
+	</tr>
+</table>
 
-<!--<p>Today is </p>
-<p id="rn"></p>-->
+<table width="100%">
+	<tr>
+		<td width="50%" align="left" valign="_top">
+			<strong>Upcoming events:</strong>
+		</td>
+		<td width="50%" align="right" valign="_top">
+			<div id="getDate"></div>
+		</td>
+	</tr>
+</table>
 
-<p><strong>Upcoming events:</strong></p>
 <p id="upcoming"></p> 
 '
 <p><strong>If you are interested in becoming a test user fill out this <a href="https://docs.google.com/forms/d/e/1FAIpQLScZOHq8PN4gFbmE-PcpPWt7bylSoqD9Ca9Y5Uje_xa8KnOwOg/viewform" target="_blank">form</a> and you will be given access.</strong></p>

@@ -95,7 +95,7 @@ function makeUL(array) {
         listItem = listItem + ", " + array[r].placename; //the object key placename corresponds to place.name in the FB api. (js didn't like the "." in the name)
 
         var a = document.createElement('a');
-        a.setAttribute('href', 'https://www.justthecalendar.com/?' + array[r].id);
+        a.setAttribute('href', 'https://www.justthecalendar.com/event?id=' + array[r].id);
         a.innerHTML = listItem;
 
         item.appendChild(a);

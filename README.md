@@ -1,7 +1,13 @@
 # Just The Calendar
 
 
-* a browser extension that only shows you your Facebook events. Allows you to minimize your FB presence without FOMO.
+* a browser extension that only shows you your Facebook events. Allows you to minimize your FB presence without FOMO and view your events without a million distractions.
+
+# to do
+* sort by time
+* fix RB's problem
+* hyperlink event listings
+* get individual event id api working
 
 
 

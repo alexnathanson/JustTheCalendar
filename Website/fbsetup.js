@@ -176,7 +176,7 @@ function sortEvents(array, string){
     var thisEvent = {start_time: eSt, name: eN, placename: ePn, rsvp_status: rsvpStat, id: eventId};
     allEvents.push(thisEvent);
   };
-      //console.log(allEvents);
+      console.log(allEvents);
 
 
   //filter by month, sort each month by day, then sort everything by year for output
